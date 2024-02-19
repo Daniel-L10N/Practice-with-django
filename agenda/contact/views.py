@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Contact
 from .forms import ContactForm
 from django.http import HttpResponse
 from django.contrib import messages
+import time
 
 def index(request):
     if (request.method == 'GET'):
@@ -33,7 +34,7 @@ def edit(request, id):
             'form': form,
             'id': id
         }
-        return render(request, 'contact/create.html', context)
+        return render(request, 'contact/edit.html', context)
     elif (request.method == "POST"):
         form = ContactForm(request.POST, instance= contact)
         if form.is_valid():
@@ -44,6 +45,30 @@ def edit(request, id):
             'id': id
         }
         messages.success(request, 'Contacto actualizado con exito!')
-        return render(request, 'contact/create.html', context)
+        return render(request, 'contact/edit.html', context)
     else:
         return HttpResponse("A ocurrido algun error, porfavor reintente luego")
+    
+def create(request):
+    if (request.method == 'GET'):
+        form = ContactForm()
+        section = 'Create'
+        context = {
+            'form': form,
+            'section': section
+        }
+        return render(request, 'contact/create.html', context)
+    elif request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+        messages.success(request, 'Contacto creado con exito!')
+        time.sleep(2)
+        return redirect('contact')
+    else:
+        return HttpResponse("A ocurrido un Error")
+
+def delete(request, id):
+    contact = Contact.objects.get(id = id)
+    contact.delete()
+    return redirect('contact')
