@@ -1,0 +1,228 @@
+:root{
+--color-primary: #2ea3f2;
+--color-secondary: #ffce00;
+--color-text: #666;
+--font-main: sans-serif;
+--font-text: system-ui;
+}
+
+/* braker screem */
+@media (min-width: 640px) {
+    .sm\:text-base {
+        font-size: 2rem/* 16px */;
+        line-height: 2.5rem/* 24px */;
+    }
+}
+/* end braker screem */
+
+/* Specials Efects */
+
+/* Typing efect */
+
+@keyframes typing{
+  from { width: 0}
+}
+@keyframes blink {
+    50% { border-color: transparent;}
+}
+.title-logo{
+    display: block;
+    font-family: var(--font-text);
+    color: #2ea3f2;
+    font-family: system-ui;
+    white-space: nowrap;
+    border-right: 3px solid;
+    width: 27.5ch;
+}
+.typic{
+    animation: typing 4.1s steps(27) ,
+  blink .6s infinite step-end alternate;
+  overflow: hidden;
+}
+/* end typing efect */
+/* End specials efects */
+
+
+/* main settings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+    color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--font-main);
+    font-size: 24px;
+    line-height: 2rem;
+}
+
+/* end main setings */
+
+/* Layout settings */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80px;
+    background-color: var(--color-primary);
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    background-color: #fff;
+    gap: 2rem;
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    font-family: var(--font-main);
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content:flex-start;
+    width: 100vw;
+    height: 50px;
+}
+/* end layout settings */
+
+/* contact setting */
+.list{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-text);
+    width: 50%;
+    list-style-type: none;
+}
+.list li{
+    padding: 15px;
+    border-bottom: 1px solid var(--color-text); 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn{
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    text-transform: capitalize;
+}
+.btn-detail{
+    background: var(--color-primary);
+}
+.btn-detail:hover{
+    background: #007bcc;
+}
+
+.btn-edit{
+   background-color: var(--color-secondary); 
+}
+.btn-edit:hover{
+    background-color: #e6e334; 
+ }
+
+.btn-delete{
+   background-color: #a10e2e;
+}
+.btn-delete:hover{
+    background-color: #7d0822;
+ }
+
+ .search{
+    margin: 20px;
+    width: 50%;
+ }
+ .search-bar{
+    padding: 8px;
+    width: 80%;
+ }
+ .btn-search{
+    background-color: var(--color-primary);
+    width: 19%;
+    outline: none;
+    border: 0;
+    box-shadow: 0;
+    cursor: pointer;
+    height: 40px;
+ }
+ .btn-search:hover{
+    background: #007bcc;
+ }
+ .aux-btn{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+ }
+ .aux-btn a{
+    padding-right: 10px;
+    text-decoration: none;
+ }
+ /* Section views */
+ .btn-back{
+    background-color: var(--color-primary);
+ }
+ .btn-back:hover{
+    background-color: #007bcc;
+ }
+ .btn-view{
+    gap: 1rem;
+ }
+ /* end section view */
+ /* section Edit */
+ .container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+ }
+
+tr input{
+    outline: none;
+    width: 96%;
+    background-color: var(--color-primary);
+    color: #fff;
+    box-shadow: none;
+    margin-left: 1rem;
+    border: 1px solid var(--color-text);
+    padding: 1rem;
+    font-size: larger;
+}
+tr label{
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+.btn-submit{
+    height: 3rem;
+    background-color: var(--color-primary);
+}
+.btn-submit:hover{
+    background-color: #007bcc;
+}
+.alert {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    list-style-type: none;
+    margin-top: 1rem;
+  }
+ /* end section edit */
+/* end contact setting */
