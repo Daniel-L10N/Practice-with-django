@@ -1,0 +1,19 @@
+{% extends "../layout/base.html" %}
+
+{% block 'title' %}{{ section }}{% endblock 'title' %}
+
+{% block 'content' %}
+<span class="aux-btn btn-view">
+    <a class="btn btn-back" href="{% url 'todo' %}">
+        Volver atrás
+    </a>
+    <a href="{% url 'todo_edit' id=todo.id %}" class="btn btn-edit">Editar</a>
+</span>
+<ul class="list">
+    <li>Titulo: {{ todo.title }}</li>
+    <li>Creado: {{ todo.date }}</li>
+    <li>Tiempo de finalidad: {{ todo.estimate_end }}</li>
+    <li>Prioridad: {{ todo.priority }}</li>
+    <li>Descrición: {{ todo.description }}</li>
+</ul>
+{% endblock 'content' %}

@@ -6,9 +6,7 @@
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li {% if message.tags %} class="alert alert-seccess">
-        {% endif %}{{ message }}
-    </li>
+    <li {% if message.tags %} class="alert alert-seccess">{% endif %}{{ message }}</li>
 
     {% endfor %}
 </ul>

@@ -1,3 +1,15 @@
 {% extends "../layout/base.html" %}
 
-{% block 'title' %}Notas{% endblock 'title' %}
+{% block 'title' %}{{ section }}{% endblock 'title' %}
+
+{% block 'content' %}
+{% include "./partials/form.html" %}
+<span class="aux-btn"><a href="{% url 'todo' %}">Ver todos</a><a href="{% url 'todo_create' %}">Añadir</a></span>
+<ul class="list">
+    {% for todo in todos %}
+    <li>Titulo: "{{ todo.title }}" - Prioridad: {{ todo.priority }}
+        <span>{% include "./partials/butons.html" %}</span>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock 'content' %}

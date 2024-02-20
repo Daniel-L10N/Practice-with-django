@@ -5,14 +5,13 @@ from django.http import HttpResponse
 from django.contrib import messages
 import time
 
-def index(request):
-    if (request.method == 'GET'):
-        contacts = Contact.objects.filter(name__contains= request.GET.get('search', ''))
-    else:
-        contacts = Contact.objects.all()
-    context = {
-        'contacts': contacts
-    }
+def index(request, letter = any):
+    if request.method == 'GET':
+        if letter != any:
+            contacts = Contact.objects.filter(name__istartswith= letter)
+        else:
+            contacts = Contact.objects.filter(name__contains= request.GET.get('search', ''))
+    context = {'contacts': contacts}
     return render(request, 'contact/index.html', context)
 
 def view(request, id):
@@ -62,8 +61,7 @@ def create(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-        messages.success(request, 'Contacto creado con exito!')
-        time.sleep(2)
+        # messages.success(request, 'Contacto creado con exito!')
         return redirect('contact')
     else:
         return HttpResponse("A ocurrido un Error")
