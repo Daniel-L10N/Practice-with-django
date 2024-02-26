@@ -3,7 +3,7 @@
 {% block 'title' %}{{ section }}{% endblock 'title' %}
 
 {% block 'content' %}
-<!-- {% if messages %}
+{% if messages %}
 <ul class="messages">
     {% for message in messages %}
     <li {% if message.tags %} class="alert alert-seccess">
@@ -12,7 +12,7 @@
 
     {% endfor %}
 </ul>
-{% endif %} -->
+{% endif %}
 <span class="aux-btn btn-view">
     <a class="btn btn-back" href="{% url 'contact' %}">
         Volver atrás
